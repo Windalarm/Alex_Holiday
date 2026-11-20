@@ -33,5 +33,41 @@
     "zimmer_name": null,
     "zimmer_quelle": null,
     "link": "https://www.sunsiyam.com/sun-siyam-olhuveli/"
+  },
+  {
+    "schluessel": "flug|STR|2027-03-21_2027-03-29",
+    "typ": "flug",
+    "zeit": "2026-11-20T17:37:31+00:00",
+    "von": "STR",
+    "termin": "2027-03-21_2027-03-29",
+    "abflug": "2027-03-21",
+    "rueckflug": "2027-03-29",
+    "naechte": 7,
+    "preis": 3306.0,
+    "airlines": [
+      "Austrian",
+      "Eurowings"
+    ],
+    "route": "STR → VIE → MLE",
+    "hin_abflug": "17:35",
+    "hin_ankunft": "08:45",
+    "dauer_h": 11.2,
+    "rueck_abflug": "09:30",
+    "rueck_ankunft": "18:50",
+    "rueck_route": "MLE → VIE → STR",
+    "link": "https://www.google.com/travel/flights?hl=de&gl=de&curr=EUR&tfs=CBwQAhpoEgoyMDI3LTAzLTIxIiAKA1NUUhIKMjAyNy0wMy0yMRoDVklFKgJFVzIEMjc1OCIeCgNWSUUSCjIwMjctMDMtMjEaA01MRSoCT1MyAjIxQABIF1AAWAlqBwgBEgNTVFJyBwgBEgNNTEUaJhIKMjAyNy0wMy0yOUAASBdQAFgVagcIARIDTUxFcgcIARIDU1RSQAFAAUgBcAGYAQE&tfu=EgIIAQ"
+  },
+  {
+    "schluessel": "hotel|Sun Siyam Olhuveli|2027-03-21_2027-03-29",
+    "typ": "hotel",
+    "zeit": "2026-11-20T17:37:41+00:00",
+    "hotel": "Sun Siyam Olhuveli",
+    "termin": "2027-03-21_2027-03-29",
+    "naechte": 7,
+    "preis_ab": 3388.0,
+    "zimmer_preis": null,
+    "zimmer_name": null,
+    "zimmer_quelle": null,
+    "link": "https://www.sunsiyam.com/sun-siyam-olhuveli/"
   }
 ]
