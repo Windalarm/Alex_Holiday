@@ -1,0 +1,81 @@
+# =====================================================================
+#  Malediven-Angebotssuche – hier stellst du alles ein
+# =====================================================================
+
+reise:
+  fruehester_abflug: "2027-03-18"     # frühester Abflug in Deutschland
+  spaetester_rueckflug: "2027-04-18"  # spätester Rückflug ab Malé
+  naechte: [7, 10, 14]                # gewünschte Nächte im Resort (beliebig erweiterbar)
+  schrittweite_tage: 3                # alle wie viele Tage ein Abflugdatum geprüft wird (1 = jeden Tag)
+  nachtflug: true                     # true = Ankunft in Malé am Tag nach dem Abflug (üblich ab DE)
+  erwachsene: 2
+  reiseklasse: economy                # economy | premium_economy | business | first
+  waehrung: EUR
+
+flugzeiten:
+  # Hinflug: Ankunft in Malé am ersten Urlaubstag spätestens um (Ortszeit Malé)
+  hinflug_ankunft_male_bis: "09:00"
+  # Rückflug: Ankunft am deutschen Heimatflughafen spätestens um (deutsche Ortszeit),
+  # und zwar am selben Tag, an dem du in Malé abfliegst (= Abreisetag aus dem Resort)
+  rueckflug_ankunft_deutschland_bis: "21:00"
+  # true = Rückflug-Details werden genau geladen und geprüft (Datum + Uhrzeit, Anzeige im Bericht).
+  #        Kostet 1 zusätzliche Suche je Flughafen und Termin.
+  # false = nur Vorfilter nach Uhrzeit (spart Suchen, Ankunftsdatum wird nicht geprüft)
+  rueckflug_details_laden: true
+
+# IATA-Codes: BRE = Bremen, STR = Stuttgart, HAJ = Hannover
+# Ideen zum Ergänzen: FRA (Condor fliegt saisonal direkt), MUC, HAM, DUS
+abflughaefen: [BRE, STR, HAJ]
+zielflughafen: MLE
+
+hotels:
+  # Traumziel
+  - name: "Sun Siyam Olhuveli"
+    suchbegriff: "Sun Siyam Olhuveli Maldives"
+    zimmer_stichwort: "Water Villa"   # erfasst z. B. auch "Grand Water Villa"
+    aktiv: true
+
+  # Vorschläge im Süd-Malé-Atoll mit Überwasser-Unterkünften – auf aktiv: true setzen zum Mitsuchen
+  # (jedes aktive Hotel kostet pro geprüftem Termin eine zusätzliche Suche)
+  - name: "Velassaru Maldives"
+    suchbegriff: "Velassaru Maldives"
+    zimmer_stichwort: "Water"
+    aktiv: false
+  - name: "Anantara Dhigu"
+    suchbegriff: "Anantara Dhigu Maldives Resort"
+    zimmer_stichwort: "Water"
+    aktiv: false
+  - name: "Adaaran Prestige Vadoo"
+    suchbegriff: "Adaaran Prestige Vadoo Maldives"
+    zimmer_stichwort: "Water"
+    aktiv: false
+  - name: "Taj Exotica"
+    suchbegriff: "Taj Exotica Resort Spa Maldives"
+    zimmer_stichwort: "Lagoon"
+    aktiv: false
+
+alarm:
+  max_preis_flug_gesamt: 2000     # € für alle Reisenden zusammen – darunter gibt es einen Alarm
+  max_preis_paket_gesamt: 9000    # € Flug + Hotel zusammen
+  bei_neuem_tiefstpreis: true     # Alarm, wenn ein Abflughafen einen neuen Tiefstpreis hat
+
+budget:
+  # Pro Lauf geprüfte Termine. Suchen pro Tag =
+  #   termine_pro_lauf × (Flughäfen × (1 + 1 falls rueckflug_details_laden) + aktive Hotels)
+  # Beispiel: 1 × (3 × 2 + 1) = 7 Suchen/Tag ≈ 210/Monat
+  termine_pro_lauf: 1
+
+benachrichtigung:
+  # Die E-Mail-Adressen trägst du als GitHub-Secret EMAIL_EMPFAENGER ein (siehe README),
+  # dann sind sie nicht öffentlich sichtbar. Nur bei einem PRIVATEN Repository kannst du sie
+  # alternativ auch hier eintragen, z. B. ["ich@example.de", "partner@example.de"]
+  email_empfaenger: []
+  bei_alarm: true            # E-Mail, sobald ein Preis unter deiner Grenze liegt
+  taeglicher_bericht: false  # true = jeden Tag den kompletten Bericht per E-Mail
+  github_issue: false        # zusätzlich ein GitHub-Issue pro Alarm anlegen
+
+claude_websuche:
+  # Durchsucht zusätzlich Reiseportale nach Pauschalangeboten (braucht ANTHROPIC_API_KEY)
+  aktiv: true
+  modell: "claude-sonnet-5-5"
+  max_websuchen: 8
