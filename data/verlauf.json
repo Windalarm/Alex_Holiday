@@ -69,5 +69,42 @@
     "zimmer_name": null,
     "zimmer_quelle": null,
     "link": "https://www.sunsiyam.com/sun-siyam-olhuveli/"
+  },
+  {
+    "schluessel": "flug|BRE|2027-03-24_2027-04-01",
+    "typ": "flug",
+    "zeit": "2026-11-20T17:46:11+00:00",
+    "von": "BRE",
+    "termin": "2027-03-24_2027-04-01",
+    "abflug": "2027-03-24",
+    "rueckflug": "2027-04-01",
+    "naechte": 7,
+    "preis": 8576.0,
+    "airlines": [
+      "Austrian",
+      "Etihad",
+      "Lufthansa"
+    ],
+    "route": "BRE → MUC → AUH → MLE",
+    "hin_abflug": "06:20",
+    "hin_ankunft": "05:05",
+    "dauer_h": 18.8,
+    "rueck_abflug": "09:30",
+    "rueck_ankunft": "19:30",
+    "rueck_route": "MLE → VIE → BRE",
+    "link": "https://www.google.com/travel/flights?hl=de&gl=de&curr=EUR&tfs=CBwQAhqKARIKMjAyNy0wMy0yNCIgCgNCUkUSCjIwMjctMDMtMjQaA01VQyoCTEgyBDIxMTkiHwoDTVVDEgoyMDI3LTAzLTI0GgNBVUgqAkVZMgMxMjYiHwoDQVVIEgoyMDI3LTAzLTI0GgNNTEUqAkVZMgMzNzhAAEgXUABYCWoHCAESA0JSRXIHCAESA01MRRomEgoyMDI3LTA0LTAxQABIF1AAWBVqBwgBEgNNTEVyBwgBEgNCUkVAAUABSAFwAZgBAQ&tfu=EgIIAQ"
+  },
+  {
+    "schluessel": "hotel|Sun Siyam Olhuveli|2027-03-24_2027-04-01",
+    "typ": "hotel",
+    "zeit": "2026-11-20T17:46:46+00:00",
+    "hotel": "Sun Siyam Olhuveli",
+    "termin": "2027-03-24_2027-04-01",
+    "naechte": 7,
+    "preis_ab": 2792.0,
+    "zimmer_preis": null,
+    "zimmer_name": null,
+    "zimmer_quelle": null,
+    "link": "https://www.sunsiyam.com/sun-siyam-olhuveli/"
   }
 ]
