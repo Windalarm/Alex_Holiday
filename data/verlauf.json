@@ -1,0 +1,37 @@
+[
+  {
+    "schluessel": "flug|STR|2027-03-18_2027-03-26",
+    "typ": "flug",
+    "zeit": "2026-11-20T17:34:00+00:00",
+    "von": "STR",
+    "termin": "2027-03-18_2027-03-26",
+    "abflug": "2027-03-18",
+    "rueckflug": "2027-03-26",
+    "naechte": 7,
+    "preis": 2072.0,
+    "airlines": [
+      "Turkish Airlines"
+    ],
+    "route": "STR → IST → MLE",
+    "hin_abflug": "06:50",
+    "hin_ankunft": "07:25",
+    "dauer_h": 20.6,
+    "rueck_abflug": "09:00",
+    "rueck_ankunft": "17:55",
+    "rueck_route": "MLE → IST → STR",
+    "link": "https://www.google.com/travel/flights?hl=de&gl=de&curr=EUR&tfs=CBwQAhppEgoyMDI3LTAzLTE4IiAKA1NUUhIKMjAyNy0wMy0xOBoDSVNUKgJUSzIEMTcxMCIfCgNJU1QSCjIwMjctMDMtMTgaA01MRSoCVEsyAzc0MEAASBdQAFgJagcIARIDU1RScgcIARIDTUxFGiYSCjIwMjctMDMtMjZAAEgXUABYFWoHCAESA01MRXIHCAESA1NUUkABQAFIAXABmAEB&tfu=EgIIAQ"
+  },
+  {
+    "schluessel": "hotel|Sun Siyam Olhuveli|2027-03-18_2027-03-26",
+    "typ": "hotel",
+    "zeit": "2026-11-20T17:34:23+00:00",
+    "hotel": "Sun Siyam Olhuveli",
+    "termin": "2027-03-18_2027-03-26",
+    "naechte": 7,
+    "preis_ab": 2861.0,
+    "zimmer_preis": null,
+    "zimmer_name": null,
+    "zimmer_quelle": null,
+    "link": "https://www.sunsiyam.com/sun-siyam-olhuveli/"
+  }
+]
