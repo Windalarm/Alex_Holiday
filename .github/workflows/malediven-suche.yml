@@ -1,0 +1,90 @@
+yaml
+name: Malediven-Angebotssuche
+
+on:
+  schedule:
+    - cron: "0 5 * * *"   # täglich 05:00 UTC (= 06:00 Winterzeit / 07:00 Sommerzeit)
+  workflow_dispatch:       # manueller Start mit optionalen Abweichungen von config.yaml
+    inputs:
+      abflughaefen:
+        description: "Abflughäfen als IATA-Codes, z. B. BRE,STR,HAJ,FRA (leer = config.yaml)"
+        required: false
+        default: ""
+      naechte:
+        description: "Nächte im Resort, z. B. 7,10,14 (leer = config.yaml)"
+        required: false
+        default: ""
+      fruehester_abflug:
+        description: "Frühester Abflug JJJJ-MM-TT (leer = config.yaml)"
+        required: false
+        default: ""
+      spaetester_rueckflug:
+        description: "Spätester Rückflug JJJJ-MM-TT (leer = config.yaml)"
+        required: false
+        default: ""
+      termine_pro_lauf:
+        description: "Wie viele Termine in diesem Lauf prüfen (leer = config.yaml)"
+        required: false
+        default: ""
+      email_test:
+        description: "Testmail mit aktuellem Bericht senden"
+        type: boolean
+        required: false
+        default: false
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: malediven-suche
+  cancel-in-progress: false
+
+jobs:
+  suche:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Abhängigkeiten installieren
+        run: pip install -r requirements.txt
+
+      - name: Suche ausführen
+        env:
+          SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ABFLUGHAEFEN: ${{ inputs.abflughaefen }}
+          NAECHTE: ${{ inputs.naechte }}
+          FRUEHESTER_ABFLUG: ${{ inputs.fruehester_abflug }}
+          SPAETESTER_RUECKFLUG: ${{ inputs.spaetester_rueckflug }}
+          TERMINE_PRO_LAUF: ${{ inputs.termine_pro_lauf }}
+          EMAIL_TEST: ${{ inputs.email_test }}
+          EMAIL_EMPFAENGER: ${{ secrets.EMAIL_EMPFAENGER }}
+          EMAIL_ABSENDER: ${{ secrets.EMAIL_ABSENDER }}
+          SMTP_SERVER: ${{ secrets.SMTP_SERVER }}
+          SMTP_PORT: ${{ secrets.SMTP_PORT }}
+          SMTP_BENUTZER: ${{ secrets.SMTP_BENUTZER }}
+          SMTP_PASSWORT: ${{ secrets.SMTP_PASSWORT }}
+        run: python src/suche.py
+
+      - name: Preisalarm als Issue melden
+        if: hashFiles('data/alarm.md') != ''
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create \
+            --title "🏝️ Malediven-Preisalarm $(date +%d.%m.%Y)" \
+            --body-file data/alarm.md
+
+      - name: Ergebnisse speichern
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add REPORT.md data/
+          git diff --cached --quiet || (git commit -m "Suche vom $(date +%d.%m.%Y)" && git push)
