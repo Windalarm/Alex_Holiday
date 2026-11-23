@@ -306,5 +306,40 @@
     "zimmer_name": null,
     "zimmer_quelle": null,
     "link": "https://www.sunsiyam.com/sun-siyam-olhuveli/"
+  },
+  {
+    "schluessel": "flug|HAJ|2027-04-05_2027-04-13",
+    "typ": "flug",
+    "zeit": "2026-11-23T05:56:24+00:00",
+    "von": "HAJ",
+    "termin": "2027-04-05_2027-04-13",
+    "abflug": "2027-04-05",
+    "rueckflug": "2027-04-13",
+    "naechte": 7,
+    "preis": 1600.0,
+    "airlines": [
+      "Austrian"
+    ],
+    "route": "HAJ → VIE → MLE",
+    "hin_abflug": "10:20",
+    "hin_ankunft": "08:30",
+    "dauer_h": 19.2,
+    "rueck_abflug": "10:05",
+    "rueck_ankunft": "19:30",
+    "rueck_route": "MLE → VIE → HAJ",
+    "link": "https://www.google.com/travel/flights?hl=de&gl=de&curr=EUR&tfs=CBwQAhpnEgoyMDI3LTA0LTA1Ih8KA0hBShIKMjAyNy0wNC0wNRoDVklFKgJPUzIDMjcyIh4KA1ZJRRIKMjAyNy0wNC0wNRoDTUxFKgJPUzICMjFAAEgXUABYCWoHCAESA0hBSnIHCAESA01MRRomEgoyMDI3LTA0LTEzQABIF1AAWBVqBwgBEgNNTEVyBwgBEgNIQUpAAUABSAFwAZgBAQ&tfu=EgIIAQ"
+  },
+  {
+    "schluessel": "hotel|Sun Siyam Olhuveli|2027-04-05_2027-04-13",
+    "typ": "hotel",
+    "zeit": "2026-11-23T05:56:26+00:00",
+    "hotel": "Sun Siyam Olhuveli",
+    "termin": "2027-04-05_2027-04-13",
+    "naechte": 7,
+    "preis_ab": 3068.0,
+    "zimmer_preis": null,
+    "zimmer_name": null,
+    "zimmer_quelle": null,
+    "link": "https://www.sunsiyam.com/sun-siyam-olhuveli/"
   }
 ]
